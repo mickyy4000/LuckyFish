@@ -1,0 +1,35 @@
+/* css/tokens.css */
+
+:root {
+  /* Colours */
+  --color-bg: #363636;            /* page background */
+  --color-surface: #4C4C4C;       /* header, cards */
+  --color-cream: #f5f8cd;         /* main text */
+  --color-lime: #D5FA3C;          /* buttons and highlights */
+  --color-blue: #33B7F0;          /* links */
+  --color-orange: #d76608;        /* large headings only */
+  --color-orange-small: #F08A3C;  /* small orange text (passes contrast) */
+  --color-pink: #FF5CC8;          /* heart (lighter for contrast) */
+  --color-text-on-lime: #363636;  /* text on lime buttons */
+
+  /* Fonts */
+  --font-heading: "Staatliches", Impact, sans-serif;
+  --font-body: "Noto Sans Devanagari", Arial, sans-serif;
+
+  /* Spacing */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 16px;
+  --space-4: 24px;
+  --space-5: 40px;
+
+  /* Sizes */
+  --header-height: 48px;  /* phones */
+  --tap-size: 44px;       
+  --radius: 8px;
+}
+
+/* Bigger screen = taller heafer */
+@media (min-width: 768px) {
+  :root { --header-height: 56px; }
+}

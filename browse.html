@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lucky Fish | Browse</title>
+
+  <!-- Fonts from Google Fonts  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;700&family=Staatliches&display=swap" rel="stylesheet">
+
+  <!-- CSS-->
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <!--  HEADER-->
+  <header class="site-header">
+    <a class="logo-link" href="index.html" aria-label="Lucky Fish home">
+      <img src="assets/images/logo.svg" alt="" width="56" height="28">
+    </a>
+    <div class="header-actions">
+      <!-- The flag button switches prices between Rand and US dollars -->
+      <button class="icon-btn" id="currency-btn" type="button" aria-pressed="false"
+              aria-label="Showing prices in Rand. Switch to US dollars">
+        <img src="assets/images/flag-za.svg" alt="" width="28" height="19">
+      </button>
+      <button class="icon-btn" id="menu-btn" type="button" aria-expanded="false"
+              aria-controls="site-menu" aria-label="Open menu">
+        <span class="burger" aria-hidden="true"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Menu overlay: hidden until the menu button is pressed.
+       On each page, move aria-current="page" to that page's own link. -->
+  <div class="menu-overlay" id="site-menu" hidden>
+    <nav aria-label="Main">
+      <ul class="menu-list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="browse.html"aria-current="page">Browse</a></li>
+        <li><a href="library.html">My Library</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+    </nav>
+  </div>
+  <!--  END HEADER  -->
+  <main id="main" class="container">
+   <h1 class="page-title">Browse or search</h1>
+
+    <!-- SEARCH -->
+        <form class="search-form" id="search-form" role="search">
+      <label for="browse-search" class="visually-hidden">Search for a game</label>
+      <div class="search-field">
+        <input type="search" id="browse-search" name="q" placeholder="Search for a game..." autocomplete="off">
+        <button class="clear-btn" type="button" id="clear-search" aria-label="Clear search" hidden>x</button>
+      </div>
+      <button class="btn" type="submit">Search</button>
+    </form>
+
+    <!-- FILTERS -->
+    <section class="filters" aria-label="Filters">
+      <div class="chip-row" role="group" aria-label="Store">
+        <button class="chip" type="button" data-store="1,7,25" aria-pressed="true">All stores</button>
+        <button class="chip" type="button" data-store="1" aria-pressed="false">Steam</button>
+        <button class="chip" type="button" data-store="7" aria-pressed="false">GOG</button>
+        <button class="chip" type="button" data-store="25" aria-pressed="false">Epic Games</button>
+      </div>
+
+      <div class="select-row">
+        <label>Price (approx.)
+          <select id="price-select">
+            <option value="0,0">Any price</option>
+            <option value="0,100">Under R100</option>
+            <option value="100,300">R100 to R300</option>
+            <option value="300,600">R300 to R600</option>
+            <option value="600,0">Over R600</option>
+          </select>
+        </label>
+
+        <label>Minimum Metacritic score
+          <select id="rating-select">
+            <option value="0">Any score</option>
+            <option value="60">60+</option>
+            <option value="75">75+</option>
+            <option value="85">85+</option>
+          </select>
+        </label>
+
+        <label>Sort by
+          <select id="sort-select">
+            <option value="Savings">Biggest discount</option>
+            <option value="Price">Lowest price</option>
+            <option value="Metacritic">Best score</option>
+            <option value="Title">Title A to Z</option>
+          </select>
+        </label>
+      </div>
+    </section>
+
+    <!-- Says how many games are showing. -->
+    <p id="status-text" role="status"></p>
+
+    <!-- The game cards go here -->
+    <div id="grid-area">
+      <noscript><p>Lucky Fish needs JavaScript to load live prices.</p></noscript>
+    </div>
+
+    <p class="center" id="load-more-wrap" hidden>
+      <button class="btn" type="button" id="load-more-btn">Load more</button>
+    </p>
+
+    <p class="price-note" id="rate-note"></p>
+  </main>
+
+    <!--  FOOTER  -->
+  <footer class="site-footer">
+    <div class="footer-columns">
+      <div>
+        <p class="footer-heading">Credits</p>
+        <ul class="footer-list">
+          <li>Prices and deals: <a href="https://www.cheapshark.com/" target="_blank" rel="noopener noreferrer">CheapShark<span class="visually-hidden"> (opens in new tab)</span></a></li>
+          <li>Game info: <a href="https://rawg.io/" target="_blank" rel="noopener noreferrer">RAWG<span class="visually-hidden"> (opens in new tab)</span></a></li>
+          <li>Animation: <a href="https://gsap.com/" target="_blank" rel="noopener noreferrer">GSAP<span class="visually-hidden"> (opens in new tab)</span></a></li>
+          <li>Artwork and logo: Mirha Sukraj</li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-heading">Contact</p>
+        <ul class="footer-list">
+          <li>Email: <a href="mailto:your-email@example.com">your-email@example.com</a></li>
+          <li>A student project by Mirha Sukraj</li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-heading">Explore</p>
+        <nav aria-label="Footer">
+          <ul class="footer-list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="browse.html">Browse</a></li>
+            <li><a href="library.html">My Library</a></li>
+            <li><a href="about.html">About</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+    <p class="footer-disclaimer">Lucky Fish is an independent student project and is not affiliated with any store or game publisher. Rand prices are estimates converted at a fixed rate; the store's own price may differ. Your library is saved in your browser only (POPIA).</p>
+  </footer>
+  
+  <!--  END FOOTER  -->
+
+  <script src="js/config.js" defer></script>
+  <script src="js/api.js" defer></script>
+  <script src="js/main.js" defer></script>
+  <script src="js/cards.js" defer></script>
+  <script src="js/library-store.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/MotionPathPlugin.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrambleTextPlugin.min.js" defer></script>
+  <script src="js/motion.js" defer></script>
+  <script src="js/browse.js" defer></script>
+</body>
+</html>
